@@ -1,0 +1,86 @@
+{
+    "desayuno": [
+        {
+            "item": "Café americano",
+            "precio": 5
+        },
+        {
+            "item": "Café con leche",
+            "precio": 7
+        },
+        {
+            "item": "Sandwich de jamón y queso",
+            "precio": 10
+        },
+        {
+            "item": "Jugo de frutas natural",
+            "precio": 7
+        }
+    ],
+    "almuerzo": {
+        "hamburguesa_simple": [
+            {
+                "tipo": "hamburguesas de res",
+                "precio": 10
+            },
+            {
+                "tipo": "hamburguesas de pollo",
+                "precio": 10
+            },
+            {
+                "tipo": "hamburguesas vegetariana",
+                "precio": 10
+            }
+        ],
+        "hamburguesa_doble": [
+            {
+                "tipo": "hamburguesas de res",
+                "precio": 15
+            },
+            {
+                "tipo": "hamburguesas de pollo",
+                "precio": 15
+            },
+            {
+                "tipo": "hamburguesas vegetariana",
+                "precio": 15
+            }
+        ],
+        "adicional": [
+            {
+                "queso": 1
+            },
+            {
+                "huevo": 1
+            }
+        ],
+        "acompañamientos": [
+            {
+                "tipo": "Papas fritas",
+                "precio": 5
+            },
+            {
+                "tipo": "Aros de cebolla",
+                "precio": 5
+            }
+        ],
+        "paratomar": [
+            {
+                "tipo": "Agua 500ml",
+                "precio": 5
+            },
+            {
+                "tipo": "Agua 750ml",
+                "precio": 7
+            },
+            {
+                "tipo": "Bebida/gaseosa 500ml",
+                "precio": 7
+            },
+            {
+                "tipo": "Bebida/gaseosa 750ml",
+                "precio": 10
+            }
+        ]
+    }
+}

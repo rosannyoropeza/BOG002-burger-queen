@@ -1,0 +1,10 @@
+<section>
+  <ul class="cardMenu">
+    <li *ngFor="let item of dataMenu; index as i">
+      <img [src]="item.url" height ="150px"  width= "200px">
+      {{ item.precio | currency: 'USD'  }}
+      {{ item.name }}
+    </li>
+  </ul>
+</section>
+

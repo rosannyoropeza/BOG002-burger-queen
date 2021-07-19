@@ -1,7 +1,7 @@
 [
   {
     "name": "Café americano",
-    "url": "https://i2.wp.com/i.pinimg.com/originals/c6/db/40/c6db4063c2ca1e58daabbb7e037c6966.png",
+    "url": "/assets/images_menu/cafe.png",
     "precio": 5,
     "tipo": "desayuno",
     "subTipo": "bebidas",
@@ -13,7 +13,7 @@
   },
   {
     "name": "Café con leche",
-    "url": "https://federaciondecafeteros.org/app/themes/fnc_base/dist/images//cafe-noticias.png",
+    "url": "/assets/images_menu/cafe_con_leche.png",
     "precio": 7,
     "tipo": "desayuno",
     "subTipo": "bebidas",
@@ -25,7 +25,7 @@
   },
   {
     "name": "Sandwich de jamón y queso",
-    "url": "https://d25rq8gxcq0p71.cloudfront.net/dictionary-images/324/ham%2520and%2520cheese%2520sandwich.jpg",
+    "url": "/assets/images_menu/sandwich_de_jamón_ y_queso.png",
     "precio": 10,
     "tipo": "desayuno",
     "subTipo": "sandwich",
@@ -37,7 +37,7 @@
   },
   {
     "name": "Jugo de frutas natural",
-    "url": "http://assets.stickpng.com/images/5b37e3062751046a99744b7d.png",
+    "url": "/assets/images_menu/jugo_de_frutas_natural.png",
     "precio": 7,
     "tipo": "desayuno",
     "subTipo": "bebidas",
@@ -49,7 +49,7 @@
   },
   {
     "name": "Hamburguesa simple de res",
-    "url": "http://assets.stickpng.com/thumbs/5882488ae81acb96424ffaaf.png",
+    "url": "/assets/images_menu/hamburguesa_simple_res.png",
     "precio": 10,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
@@ -61,7 +61,7 @@
   },
   {
     "name": "Hamburguesa simple de pollo",
-    "url": "http://assets.stickpng.com/thumbs/5882488ae81acb96424ffaaf.png",
+    "url": "/assets/images_menu/hamburguesa_simple_pollo.png",
     "precio": 10,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
@@ -73,7 +73,7 @@
   },
   {
     "name": "hamburguesa simple vegetariana",
-    "url": "http://assets.stickpng.com/thumbs/5882488ae81acb96424ffaaf.png",
+    "url": "/assets/images_menu/hamburguesa_simple_vegetariana.png",
     "precio": 10,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
@@ -85,7 +85,7 @@
   },
   {
     "name": "Hamburguesa doble de res",
-    "url": "https://toptenburgersandfries.com/wp-content/uploads/2020/06/Hamburguesa-double-top.png",
+    "url": "/assets/images_menu/hamburguesa-double-res.png",
     "precio": 15,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
@@ -97,7 +97,7 @@
   },
   {
     "name": "Hamburguesa doble de pollo",
-    "url": "https://toptenburgersandfries.com/wp-content/uploads/2020/06/Hamburguesa-double-top.png",
+    "url": "/assets/images_menu/hamburguesa_doble-pollo.png",
     "precio": 15,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
@@ -109,7 +109,7 @@
   },
   {
     "name": "hamburguesa doble vegetariana",
-    "url": "https://toptenburgersandfries.com/wp-content/uploads/2020/06/Hamburguesa-double-top.png",
+    "url": "/assets/images_menu/hamburguesa-doble-vegetariana.png",
     "precio": 15,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
@@ -121,7 +121,7 @@
   },
   {
     "name": "Papas fritas",
-    "url": "https://www.dingopedidos.com/wp-content/uploads/2020/08/ppa1.png",
+    "url": "/assets/images_menu/papas_fritas.png",
     "precio": 5,
     "tipo": "almuerzo",
     "subTipo": "acompañamientos",
@@ -133,7 +133,7 @@
   },
   {
     "name": "Aros de cebolla",
-    "url": "https://fostershollywood.es/sites/default/files/images/product/aros-de-cebolla.png",
+    "url": "/assets/images_menu/aros-de-cebolla.png",
     "precio": 5,
     "tipo": "almuerzo",
     "subTipo": "acompañamientos",
@@ -145,7 +145,7 @@
   },
   {
     "name": "Agua 500ml",
-    "url": "https://lalicorera.com/img/products/agua-cristal.png",
+    "url": "/assets/images_menu/agua_500ml.png",
     "precio": 5,
     "tipo": "almuerzo",
     "subTipo": "para tomar",
@@ -157,7 +157,7 @@
   },
   {
     "name": "Agua 750ml",
-    "url": "https://trimais.vteximg.com.br/arquivos/ids/1018571-1000-1000/foto_original.jpg?v=637456397077600000",
+    "url": "assets/images_menu/agua_750ml.jpg",
     "precio": 7,
     "tipo": "almuerzo",
     "subTipo": "para tomar",
@@ -169,7 +169,7 @@
   },
   {
     "name": "Bebida/gaseosa 500ml",
-    "url": "http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c1f1.png",
+    "url": "/assets/images_menu/gaseosa_500ml.png",
     "precio": 7,
     "tipo": "almuerzo",
     "subTipo": "para tomar",
@@ -181,7 +181,7 @@
   },
   {
     "name": "Bebida/gaseosa 750ml",
-    "url": "http://pngimg.com/uploads/pepsi/pepsi_PNG8946.png",
+    "url": "/assets/images_menu/gaseosa_750ml.png",
     "precio": 10,
     "tipo": "almuerzo",
     "subTipo": "para tomar",

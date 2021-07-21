@@ -1,1 +1,39 @@
-<p>mesero works!</p>
+<div>
+  <app-header></app-header>
+</div>
+
+<section>
+  <div class="conteinerMenu">
+    <div class="btn-menu">
+      <button class="btnOpciones btn-desayunos" (click)="showMenu1()">
+        Desayuno
+      </button>
+      <button class="btnOpciones btn-desayunos" (click)="showMenu2()">
+        Almuerzos
+      </button>
+    </div>
+
+    <div class="conteinerCardMenu">
+      <div *ngIf="selectedMenu1">
+        <app-menu [dataMenu]="menu1" (addRequest)="addDataProductos($event)"></app-menu>
+      </div>
+
+      <div *ngIf="selectedMenu2">
+        <app-menu [dataMenu]="menu2" (addRequest)="addDataProductos($event)"></app-menu>
+      </div>
+    </div>
+  </div>
+
+  <div class="conteinerFormMenu">
+    <app-form-pedidos [dataPedido]= "dataProductos"></app-form-pedidos>
+  </div>
+</section>
+
+<!-- <section>
+  <ul class="cardMenu">
+    <li *ngFor="let item of data$ | async; index as i">
+      {{ i + 1 }}. {{ item.name }}
+    </li>
+  </ul>
+
+</section> -->

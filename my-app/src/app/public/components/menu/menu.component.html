@@ -1,10 +1,10 @@
 <section>
-  <ul class="cardMenu">
-    <li *ngFor="let item of dataMenu; index as i">
-      <img [src]="item.url" height ="150px"  width= "200px">
-      {{ item.precio | currency: 'USD'  }}
-      {{ item.name }}
-    </li>
-  </ul>
+  <div class="cardMenu">
+    <div class ="menuCard" (click)="addProduct(item)" *ngFor="let item of dataMenu; index as i">
+      <img class = "item" [src]="item.url" height ="120px"  width= "150px">
+      <p class = "item">{{ item.precio | currency: 'USD'  }}</p>
+      <p class = "item">{{ item.name }}</p>
+    </div>
+  </div>
 </section>
 

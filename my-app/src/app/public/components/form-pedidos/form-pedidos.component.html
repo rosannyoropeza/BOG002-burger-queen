@@ -1,3 +1,43 @@
-<p>
-  form-pedidos works!
-</p>
+<form>
+  <div>
+    <label for="nombreDeCliente">Cliente: </label>
+    <input id="nombreDeCliente" placeholder="Nombre del cliente" />
+  </div>
+  <div>
+    <label for="numeroDeMesa">Mesa: #</label>
+    <input id="numeroDeMesa" placeholder=" de Mesa" />
+  </div>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataPedido; index as i">
+      <td>{{ item.name }}</td>
+      <td>{{ item.precio | currency: 'USD'  }}</td>
+      <td><button class="btntd"><img src="./assets/image/add.png" width="100%"/></button>
+        <p>0</p>
+        <button class="btntd"><img src="./assets/image/remove.png" width="100%"/></button>
+        <button class="btntd"><img src="./assets/image/delete.png" width="100%"/></button>
+        <button class="btntd"><img src="./assets/image/cerrar.png"/></button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <td>
+      <label for="total">Total: </label>
+      <p>$</p>
+    </td>
+  </tfoot>
+</table>
+
+<div>
+  <button class="btnPedido">Enviar pedido</button>
+  <button class="btnPedido">Cancelar pedido</button>
+</div>

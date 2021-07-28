@@ -18,14 +18,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of dataPedido; index as i">
+    <!-- <tr *ngFor="let item of dataProductos; index as i"> -->
+      <tr *ngFor="let item of dataPedido; index as i">
       <td>{{ item.name }}</td>
       <td>{{ item.precio | currency: 'USD'  }}</td>
-      <td><button class="btntd"><img src="./assets/image/add.png" width="100%"/></button>
-        <p>0</p>
+      <td><button class="btntd" (click)="addProductQuantity"><img src="./assets/image/add.png" width="100%"/></button>
+        <p>{{ item.cant}}</p>
         <button class="btntd"><img src="./assets/image/remove.png" width="100%"/></button>
         <button class="btntd"><img src="./assets/image/delete.png" width="100%"/></button>
-        <button class="btntd"><img src="./assets/image/cerrar.png"/></button>
       </td>
     </tr>
   </tbody>

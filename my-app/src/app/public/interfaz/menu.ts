@@ -1,4 +1,5 @@
-export interface menu {
+export interface producto {
+  id: number;
   name: string;
   url: string;
   precio: number;
@@ -11,8 +12,9 @@ export interface menu {
   };
 }
 
-
-export interface producto{
+export interface pedidoProducto{
+  id:number;
+  idProducto: number;
   name: string;
   precio: number;
   cant: number;
@@ -22,3 +24,4 @@ export interface producto{
     precio: number;
   };
 }
+

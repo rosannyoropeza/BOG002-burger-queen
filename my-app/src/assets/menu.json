@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Café americano",
     "url": "/assets/images_menu/cafe.png",
     "precio": 5,
@@ -12,6 +13,7 @@
     }
   },
   {
+    "id": 2,
     "name": "Café con leche",
     "url": "/assets/images_menu/cafe_con_leche.png",
     "precio": 7,
@@ -24,6 +26,7 @@
     }
   },
   {
+    "id": 3,
     "name": "Sandwich de jamón y queso",
     "url": "/assets/images_menu/sandwich_de_jamón_ y_queso.png",
     "precio": 10,
@@ -36,6 +39,7 @@
     }
   },
   {
+    "id": 4,
     "name": "Jugo de frutas natural",
     "url": "/assets/images_menu/jugo_de_frutas_natural.png",
     "precio": 7,
@@ -48,78 +52,85 @@
     }
   },
   {
+    "id": 5,
     "name": "Hamburguesa simple de res",
     "url": "/assets/images_menu/hamburguesa_simple_res.png",
     "precio": 10,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
     "adicional": {
-      "adicional1": "queso",
-      "adicional2": "huevo",
+      "adicional1": "Queso",
+      "adicional2": "Huevo",
       "precio": 1
     }
   },
   {
+    "id": 6,
     "name": "Hamburguesa simple de pollo",
     "url": "/assets/images_menu/hamburguesa_simple_pollo.png",
     "precio": 10,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
     "adicional": {
-      "adicional1": "queso",
-      "adicional2": "huevo",
+      "adicional1": "Queso",
+      "adicional2": "Huevo",
       "precio": 1
     }
   },
   {
-    "name": "hamburguesa simple vegetariana",
+    "id": 7,
+    "name": "Hamburguesa simple vegetariana",
     "url": "/assets/images_menu/hamburguesa_simple_vegetariana.png",
     "precio": 10,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
     "adicional": {
-      "adicional1": "queso",
-      "adicional2": "huevo",
+      "adicional1": "Queso",
+      "adicional2": "Huevo",
       "precio": 1
     }
   },
   {
+    "id": 8,
     "name": "Hamburguesa doble de res",
     "url": "/assets/images_menu/hamburguesa-double-res.png",
     "precio": 15,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
     "adicional": {
-      "adicional1": "queso",
-      "adicional2": "huevo",
+      "adicional1": "Queso",
+      "adicional2": "Huevo",
       "precio": 1
     }
   },
   {
+    "id": 9,
     "name": "Hamburguesa doble de pollo",
     "url": "/assets/images_menu/hamburguesa_doble-pollo.png",
     "precio": 15,
     "tipo": "almuerzo",
     "subTipo": "hamburguesa",
     "adicional": {
-      "adicional1": "queso",
-      "adicional2": "huevo",
+      "adicional1": "Queso",
+      "adicional2": "Huevo",
       "precio": 1
     }
   },
   {
-    "name": "hamburguesa doble vegetariana",
+    "id": 10,
+    "name": "Hamburguesa doble vegetariana",
     "url": "/assets/images_menu/hamburguesa-doble-vegetariana.png",
     "precio": 15,
     "tipo": "almuerzo",
-    "subTipo": "hamburguesa",
+    "subTipo": "Hamburguesa",
     "adicional": {
-      "adicional1": "queso",
-      "adicional2": "huevo",
+      "adicional1": "Queso",
+      "adicional2": "Huevo",
       "precio": 1
     }
   },
   {
+    "id": 11,
     "name": "Papas fritas",
     "url": "/assets/images_menu/papas_fritas.png",
     "precio": 5,
@@ -132,6 +143,7 @@
     }
   },
   {
+    "id": 12,
     "name": "Aros de cebolla",
     "url": "/assets/images_menu/aros-de-cebolla.png",
     "precio": 5,
@@ -144,6 +156,7 @@
     }
   },
   {
+    "id": 13,
     "name": "Agua 500ml",
     "url": "/assets/images_menu/agua_500ml.png",
     "precio": 5,
@@ -156,6 +169,7 @@
     }
   },
   {
+    "id": 14,
     "name": "Agua 750ml",
     "url": "assets/images_menu/agua_750ml.jpg",
     "precio": 7,
@@ -168,6 +182,7 @@
     }
   },
   {
+    "id": 15,
     "name": "Bebida/gaseosa 500ml",
     "url": "/assets/images_menu/gaseosa_500ml.png",
     "precio": 7,
@@ -180,6 +195,7 @@
     }
   },
   {
+    "id": 16,
     "name": "Bebida/gaseosa 750ml",
     "url": "/assets/images_menu/gaseosa_750ml.png",
     "precio": 10,

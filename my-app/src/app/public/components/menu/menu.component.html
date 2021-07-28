@@ -1,10 +1,9 @@
-<section>
-  <div class="cardMenu">
+<!-- <div class="cardMenu"> -->
     <div class ="menuCard" (click)="addProduct(item)" *ngFor="let item of dataMenu; index as i">
       <img class = "item" [src]="item.url" height ="120px"  width= "150px">
-      <p class = "item">{{ item.precio | currency: 'USD'  }}</p>
+      <p class = "itemP">{{ item.precio | currency: 'USD'  }}</p>
       <p class = "item">{{ item.name }}</p>
     </div>
-  </div>
-</section>
+<!-- </div> -->
 
+<!-- <app-modal [showclass]="show"></app-modal> -->

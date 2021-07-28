@@ -25,15 +25,15 @@
   </div>
 
   <div class="conteinerFormMenu">
-    <app-form-pedidos [dataPedido]= "dataProductos"></app-form-pedidos>
+    <app-form-pedidos [dataPedido]= "dataProductos" (addQuantityRequest)="addProduct"></app-form-pedidos>
   </div>
 </section>
 
-<!-- <section>
-  <ul class="cardMenu">
-    <li *ngFor="let item of data$ | async; index as i">
-      {{ i + 1 }}. {{ item.name }}
-    </li>
-  </ul>
+<app-modal
+[showclass]="show"
+[item]="itemSeleccionado"
+[productoPedido]="objPedidoProducto"
+(closeRequest)="closeModal()"
+(addRequest) = "addAdicional($event)">
+</app-modal>
 
-</section> -->

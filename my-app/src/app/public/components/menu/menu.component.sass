@@ -1,17 +1,11 @@
-section
-  align-items: center
-  display: flex
-  flex-direction: column
-  width: 100%
-
-.cardMenu
+:host
   display: flex
   justify-content: center
   flex-wrap: wrap
   text_justify-content: space-evenly
   width: 100%
   margin: 0%
-   align-items: center
+  align-items: center
 
 
 .menuCard
@@ -21,13 +15,18 @@ section
   padding: 5px
   font-family: 'lobster'
   font-weight: bold
-  font-size: 1.5rem
+  font-size: 1.3rem
   background: #FEFFB8
-  margin: 1%
+  margin: 2%
   list-style: none
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  text-align: center
 
   img
-    justify-content: center
+    margin-top: 2%
 
-.item
-  align-items: center
+.itemP
+    align-self: flex-end
+    margin-left: 50%

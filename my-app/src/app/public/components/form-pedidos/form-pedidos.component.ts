@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {menu} from '../../interfaz/menu'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {pedidoProducto} from '../../interfaz/menu'
 
 @Component({
   selector: 'app-form-pedidos',
@@ -8,7 +8,12 @@ import {menu} from '../../interfaz/menu'
 })
 
 export class FormPedidosComponent implements OnInit {
-  @Input() dataPedido: Array<menu> = [];
+  @Input() dataPedido: Array<pedidoProducto> = [];
+  @Output () addQuantityRequest= new EventEmitter();
+
+  addProductQuantity(){
+    this.addQuantityRequest.emit();
+  }
 
   constructor() { }
 

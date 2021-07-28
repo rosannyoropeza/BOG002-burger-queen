@@ -1,19 +1,25 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { menu } from '../../interfaz/menu';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { producto } from '../../interfaz/menu';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.sass'],
 })
+
 export class MenuComponent implements OnInit {
-  @Input() dataMenu: Array<menu> = [];
-  @Output() addRequest = new EventEmitter<menu>();
+  @Input() dataMenu: Array<producto> = [];
+  @Output() addRequest = new EventEmitter<producto>();
 
-  constructor() {}
-
-  ngOnInit() {}
-
-  addProduct(item: menu) {
-    this.addRequest.emit(item);
+  constructor() {
   }
+
+  ngOnInit() {
+  }
+
+  addProduct(item: producto) {
+    this.addRequest.emit(item);
+
+  }
+
 }

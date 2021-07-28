@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { PublicRoutingModule } from "./public-routing.module";
 import { SharedModule } from './../core/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from "@angular/common";
 import { PublicComponent } from './public.component';
@@ -10,6 +11,7 @@ import { JefeDeCocinaComponent } from './jefe-de-cocina/jefe-de-cocina.component
 import { HeaderComponent } from "./components/header/header.component";
 import { MenuComponent } from "./components/menu/menu.component";
 import { FormPedidosComponent } from './components/form-pedidos/form-pedidos.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule ({
   //Para importar a este modulo
@@ -17,9 +19,10 @@ import { FormPedidosComponent } from './components/form-pedidos/form-pedidos.com
   [
     CommonModule,
     PublicRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  //Para declarar e importar los controladores que se usaran.
   declarations:
   [
     PublicComponent,
@@ -28,7 +31,8 @@ import { FormPedidosComponent } from './components/form-pedidos/form-pedidos.com
     JefeDeCocinaComponent,
     HeaderComponent,
     MenuComponent,
-    FormPedidosComponent
+    FormPedidosComponent,
+    ModalComponent
   ],
   //Para exportar y acceder desde HTML APP
   exports:

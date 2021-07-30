@@ -56,27 +56,21 @@ export class MeseroComponent implements OnInit {
 
   // Para aumentar cantidad de producto selecionados en el formulario de pedidos
   addProduct(item:producto){
-    this.PedidosService.addPedido.subscribe(arrayPedidos=>{
-      console.log("soy pedido + 1")
+    // this.PedidosService.addPedido.subscribe(arrayPedidos=>{
+    //   console.log("soy pedido + 1")
 
-    })
+    // })
   }
 
   // Para disminuir cantidad de producto selecionados en el formulario de pedidos
-
-  // Para eliminar los producto selecionados en el formulario de pedidos
-  deleteProduct(item:producto){
-    this.PedidosService.deleteProducto(item)
-    // this.PedidosService.addPedido.subscribe(arrayPedidos=>{})
-    // this.dataProductos.forEach((producto,index)=>{
-    //   if(item.id == producto.idProducto){
-    //     console.log(item, "soy item");
-    //     console.log(producto.idProducto, "soy producto")
-    //     // item.splice(index,1);
-    //   }
-    //})
+  reduceProduct(item:producto){
+    this.PedidosService.reduceProducto(item)
   }
 
+  // Para eliminar los producto selecionados en el formulario de pedidos
+  deleteProduct(itemPedido:pedidoProducto){
+    this.PedidosService.deleteProducto(itemPedido)
+  }
 
   //Mostrar Modal de Adicionales para Hamburguesas
   show: boolean = false;

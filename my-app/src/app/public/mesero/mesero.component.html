@@ -15,25 +15,36 @@
 
     <div class="conteinerCardMenu">
       <div *ngIf="selectedMenu1">
-        <app-menu [dataMenu]="menu1" (addRequest)="addDataProductos($event)"></app-menu>
+        <app-menu
+          [dataMenu]="menu1"
+          (addRequest)="addDataProductos($event)"
+        ></app-menu>
       </div>
 
       <div *ngIf="selectedMenu2">
-        <app-menu [dataMenu]="menu2" (addRequest)="addDataProductos($event)"></app-menu>
+        <app-menu
+          [dataMenu]="menu2"
+          (addRequest)="addDataProductos($event)"
+        ></app-menu>
       </div>
     </div>
   </div>
 
   <div class="conteinerFormMenu">
-    <app-form-pedidos [dataPedido]= "dataProductos" (addQuantityRequest)="addProduct($event)" (deleteRequest)="deleteProduct($event)"></app-form-pedidos>
+    <app-form-pedidos
+      [dataPedido]="dataProductos"
+      (addQuantityRequest)="addProduct($event)"
+      (deleteRequest)="deleteProduct($event)"
+      (reduceRequest)="reduceProduct($event)"
+    ></app-form-pedidos>
   </div>
 </section>
 
 <app-modal
-[showclass]="show"
-[item]="itemSeleccionado"
-[productoPedido]="objPedidoProducto"
-(closeRequest)="closeModal()"
-(addRequest) = "addAdicional($event)">
+  [showclass]="show"
+  [item]="itemSeleccionado"
+  [productoPedido]="objPedidoProducto"
+  (closeRequest)="closeModal()"
+  (addRequest)="addAdicional($event)"
+>
 </app-modal>
-

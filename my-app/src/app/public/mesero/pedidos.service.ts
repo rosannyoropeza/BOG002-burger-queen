@@ -11,7 +11,7 @@ export class PedidosService {
   existe: boolean = false;
   objDetallePedido?: pedidoProducto;
   getPedido = new BehaviorSubject(this.detallePedido);
-  addPedido = this.getPedido.asObservable();
+  //addPedido = this.getPedido.asObservable();
 
   constructor() {}
 
@@ -31,29 +31,22 @@ export class PedidosService {
       },
     };
 
+    let existe:boolean=false;
     if (this.detallePedido.length > 0) {
-      let nombres: string[] = this.detallePedido.map( item => {
-        return item.name;
-      })
-
-      let indice=nombres.includes(this.objDetallePedido.name);
-      this.existe= indice;
-      if (this.existe) {
-        this.detallePedido.forEach((producto) => {
-          if (item.id == producto.idProducto) {
-            producto.cant = producto.cant + 1;
-          }
-        });
-      }
-      else{
+      this.detallePedido.forEach((producto) => {
+        if (item.id == producto.idProducto) {
+          producto.cant = producto.cant + 1;
+          producto.precio += item.precio;
+          existe=true;
+        }
+      });
+      if (!existe) {
         this.detallePedido.push(this.objDetallePedido);
       }
     } else {
       this.detallePedido.push(this.objDetallePedido);
-      console.log('inicio');
     }
     this.getPedido.next(this.detallePedido);
-    console.log(this.detallePedido);
   }
 
   addProducto(item: producto) {
@@ -62,10 +55,36 @@ export class PedidosService {
     // }
   }
 
-  deleteProducto(item: producto) {
-    this.detallePedido.forEach((producto, index) => {
-      if (item.id == producto.idProducto) {
+  reduceProducto(item: producto){
+    // if (this.detallePedido.length > 0) {
+    //   this.detallePedido.map( item => {
+    //     return item.name;
+    //   })
+
+    //   let indice=nombres.includes(this.objDetallePedido.name);
+    //   this.existe= indice;
+    //   if (this.existe) {
+    //     this.detallePedido.forEach((producto) => {
+    //       if (item.id == producto.idProducto) {
+    //         producto.cant = producto.cant + 1;
+    //         producto.precio = item.precio+producto.precio;
+    //       }
+    //     });
+    //   }
+    //   else{
+    //     this.detallePedido.push(this.objDetallePedido);
+    //   }
+    // } else {
+    //   this.detallePedido.push(this.objDetallePedido);
+    // }
+    // this.getPedido.next(this.detallePedido)
+  }
+
+  deleteProducto(itemDetalle: pedidoProducto) {
+    this.detallePedido.map((detalleProducto, index) => {
+      if (itemDetalle.id == detalleProducto.id) {
         this.detallePedido.splice(index, 1);
+        this.getPedido.next(this.detallePedido);
       }
     });
   }

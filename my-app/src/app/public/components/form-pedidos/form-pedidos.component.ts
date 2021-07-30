@@ -11,6 +11,12 @@ export class FormPedidosComponent implements OnInit {
   @Input() dataPedido: Array<pedidoProducto> = [];
   @Output () addQuantityRequest= new EventEmitter();
   @Output () deleteRequest = new EventEmitter();
+  @Output () reduceRequest = new EventEmitter();
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 
   addProductQuantity(item:pedidoProducto){
     this.addQuantityRequest.emit(item);
@@ -19,10 +25,8 @@ export class FormPedidosComponent implements OnInit {
   deleteProductQuantity(item:pedidoProducto){
     this.deleteRequest.emit(item);
   }
-  constructor() { }
 
-  ngOnInit() {
+  reduceProductQuantity(item:pedidoProducto){
+    this.reduceRequest.emit(item);
   }
-
-
 }

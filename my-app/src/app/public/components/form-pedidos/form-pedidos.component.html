@@ -1,10 +1,10 @@
 <form>
-  <div>
+  <div class="formHead">
     <label for="nombreDeCliente">Cliente: </label>
     <input id="nombreDeCliente" placeholder="Nombre del cliente" />
   </div>
-  <div>
-    <label for="numeroDeMesa">Mesa: #</label>
+  <div class="formHead">
+    <label for="numeroDeMesa">Mesa:#</label>
     <input id="numeroDeMesa" placeholder=" de Mesa" />
   </div>
 </form>
@@ -12,9 +12,9 @@
 <table>
   <thead>
     <tr>
-      <th>Producto</th>
+      <th width="50%" nowrap>Producto</th>
       <th>Precio</th>
-      <th>Cantidad</th>
+      <th nowrap>Cantidad</th>
     </tr>
   </thead>
   <tbody>
@@ -22,15 +22,16 @@
       <tr *ngFor="let item of dataPedido; index as i">
       <td>{{ item.name }}</td>
       <td>{{ item.precio | currency: 'USD'  }}</td>
-      <td><button type="button" class="btntd" (click)="addProductQuantity(item)"><img src="./assets/image/add.png" width="100%"/></button>
-        <p>{{ item.cant}}</p>
-        <button type="button" class="btntd"><img src="./assets/image/remove.png" width="100%"/></button>
-        <button type="button" class="btntd" (click)="deleteProductQuantity(item)"><img src="./assets/image/delete.png" width="100%"/></button>
+      <td>
+        {{ item.cant}}
+        <button type="button" class="btntd" (click)="addProductQuantity(item)"><img src="./assets/image/add.png" width="50%"/></button>
+        <button type="button" class="btntd" (click)="reduceProductQuantity(item)"><img src="./assets/image/remove.png" width="50%"/></button>
+        <button type="button" class="btntd" (click)="deleteProductQuantity(item)"><img src="./assets/image/delete.png" width="50%"/></button>
       </td>
     </tr>
   </tbody>
   <tfoot>
-    <td>
+    <td colspan="3">
       <label for="total">Total: </label>
       <p>$</p>
     </td>

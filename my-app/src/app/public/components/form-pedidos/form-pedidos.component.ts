@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {pedidoProducto, producto} from '../../interfaz/menu'
+import { pedidoProducto } from '../../interfaz/menu'
 
 @Component({
   selector: 'app-form-pedidos',
@@ -12,6 +12,7 @@ export class FormPedidosComponent implements OnInit {
   @Output () increaseRequest= new EventEmitter();
   @Output () deleteRequest = new EventEmitter();
   @Output () decreaseRequest = new EventEmitter();
+  @Output () cancelRequest = new EventEmitter();
 
   constructor() { }
 
@@ -28,5 +29,9 @@ export class FormPedidosComponent implements OnInit {
 
   decreaseProductQuantity(item:pedidoProducto){
     this.decreaseRequest.emit(item);
+  }
+
+  cancelOrder(){
+    this.cancelRequest.emit();
   }
 }

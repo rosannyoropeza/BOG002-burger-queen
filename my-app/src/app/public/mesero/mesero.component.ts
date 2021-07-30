@@ -69,6 +69,11 @@ export class MeseroComponent implements OnInit {
     this.PedidosService.deleteProducto(itemPedido)
   }
 
+  cancelProduct(){
+    this.PedidosService.cancelProducto();
+    this.dataProductos = this.PedidosService.detallePedido;
+  }
+
   //Mostrar Modal de Adicionales para Hamburguesas
   show: boolean = false;
 

@@ -74,4 +74,9 @@ export class PedidosService {
       }
     });
   }
+
+  cancelProducto(){
+    this.detallePedido=[];
+    this.getPedido.next(this.detallePedido);
+  }
 }

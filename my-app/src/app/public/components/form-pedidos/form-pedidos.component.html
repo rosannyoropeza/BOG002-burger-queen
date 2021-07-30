@@ -21,7 +21,7 @@
     <!-- <tr *ngFor="let item of dataProductos; index as i"> -->
       <tr *ngFor="let item of dataPedido; index as i">
       <td>{{ item.name }}</td>
-      <td>{{ item.precio | currency: 'USD'  }}</td>
+      <td>{{ item.precioTotal | currency: 'USD'  }}</td>
       <td>
         {{ item.cant}}
         <button type="button" class="btntd" (click)="increaseProductQuantity(item)"><img src="./assets/image/add.png" width="50%"/></button>

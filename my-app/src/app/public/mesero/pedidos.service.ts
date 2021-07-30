@@ -24,6 +24,7 @@ export class PedidosService {
       name: item.name,
       precio: item.precio,
       cant: 1,
+      precioTotal:item.precio,
       adicional: {
         adicional1: '',
         adicional2: '',
@@ -36,7 +37,7 @@ export class PedidosService {
       this.detallePedido.forEach((producto) => {
         if (item.id == producto.idProducto) {
           producto.cant = producto.cant + 1;
-          producto.precio += item.precio;
+          producto.precioTotal = producto.precio * producto.cant;
           existe=true;
         }
       });
@@ -50,16 +51,19 @@ export class PedidosService {
   }
 
   increaseProducto(itemDetalle: pedidoProducto) {
+    // si cantidad es mayor que 1 debe aumentar 1 cantidad por cada click y aumentar el precio
     itemDetalle.cant += 1;
+    itemDetalle.precioTotal = itemDetalle.precio * itemDetalle.cant;
   }
 
   decreaseProducto(itemDetalle: pedidoProducto){
     //itemDetalle cuanta cantidad tiene
-    // si cantidad es mayor que 1 debe disminuir 1 cantidad por cada click
+    // si cantidad es mayor que 1 debe disminuir 1 cantidad por cada click y disminuir el precio
     //si cantidad es igual a 1 debe eliminar el item.
 
     if(itemDetalle.cant > 1){
       itemDetalle.cant -= 1;
+      itemDetalle.precioTotal -= itemDetalle.precio;
     }
     else{
       this.deleteProducto(itemDetalle);

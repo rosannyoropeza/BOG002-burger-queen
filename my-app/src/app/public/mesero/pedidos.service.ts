@@ -1,7 +1,6 @@
 import { pedidoProducto, producto } from './../interfaz/menu';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
+import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,6 +11,9 @@ export class PedidosService {
   objDetallePedido?: pedidoProducto;
   getPedido = new BehaviorSubject(this.detallePedido);
   //addPedido = this.getPedido.asObservable();
+  // total: number = 0;
+  // totalPedido = new Subject<number>();
+  // getTotal=this.totalPedido.asObservable();
 
   constructor() {}
 
@@ -77,6 +79,12 @@ export class PedidosService {
         this.getPedido.next(this.detallePedido);
       }
     });
+  }
+
+  totalPay(){
+    let total = this.detallePedido.map(producto=> producto.precioTotal);
+    let totalOrder = total.reduce((acc, val)=>{ return acc + val},0);
+    return totalOrder;
   }
 
   cancelProducto(){

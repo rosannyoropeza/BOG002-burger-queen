@@ -69,6 +69,12 @@ export class MeseroComponent implements OnInit {
     this.PedidosService.deleteProducto(itemPedido)
   }
 
+  // Para sumar el total de los productos de detallePedido
+  totalProduct(){
+    let total = this.PedidosService.totalPay();
+    return total;
+  }
+
   cancelProduct(){
     this.PedidosService.cancelProducto();
     this.dataProductos = this.PedidosService.detallePedido;

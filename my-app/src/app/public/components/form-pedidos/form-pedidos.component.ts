@@ -13,6 +13,7 @@ export class FormPedidosComponent implements OnInit {
   @Output () deleteRequest = new EventEmitter();
   @Output () decreaseRequest = new EventEmitter();
   @Output () cancelRequest = new EventEmitter();
+  @Input () payProduct: any;
 
   constructor() { }
 

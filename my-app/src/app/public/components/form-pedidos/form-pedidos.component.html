@@ -31,9 +31,11 @@
     </tr>
   </tbody>
   <tfoot>
-    <td colspan="3">
-      <label for="total">Total: </label>
-      <p>$</p>
+    <td colspan="2">
+      <label class="total">Total: </label>
+    </td>
+    <td colspan="2">
+        <p class="total"> {{payProduct | currency: 'USD'}} </p>
     </td>
   </tfoot>
 </table>

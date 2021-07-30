@@ -25,7 +25,7 @@
   </div>
 
   <div class="conteinerFormMenu">
-    <app-form-pedidos [dataPedido]= "dataProductos" (addQuantityRequest)="addProduct"></app-form-pedidos>
+    <app-form-pedidos [dataPedido]= "dataProductos" (addQuantityRequest)="addProduct($event)" (deleteRequest)="deleteProduct($event)"></app-form-pedidos>
   </div>
 </section>
 

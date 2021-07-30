@@ -1,6 +1,8 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { producto, pedidoProducto } from './../interfaz/menu';
+import { PedidosService } from './pedidos.service';
 @Component({
   selector: 'app-mesero',
   templateUrl: './mesero.component.html',
@@ -11,7 +13,7 @@ export class MeseroComponent implements OnInit {
   menu1: Array<producto> = [];
   menu2: Array<producto> = [];
 
-  constructor(private http: HttpClient, private el: ElementRef) {}
+  constructor(private http: HttpClient, private el: ElementRef, private PedidosService: PedidosService) {}
 
   title?: String = 'Menu Mesero';
 
@@ -46,52 +48,35 @@ export class MeseroComponent implements OnInit {
   itemSeleccionado: any = {};
 
   addDataProductos(item: producto) {
-    this.cantidadProductos = this.dataProductos.length + 1;
-
-    this.objPedidoProducto = {
-      id: this.cantidadProductos,
-      idProducto: item.id,
-      name: item.name,
-      precio: item.precio,
-      cant: 1,
-      adicional: {
-        adicional1: "",
-        adicional2: "",
-        precio: 0,
-      },
-    }
-
-   let existe = false;
-
-    // Para ingresar el producto en el formulario de pedidos
-    if(this.dataProductos.length > 0){
-      this.dataProductos.forEach((producto)=>{
-        if(item.id == producto.idProducto){
-          producto.cant = producto.cant + 1;
-          existe = true
-        }
-      })
-      if (!existe){
-        this.dataProductos.push(this.objPedidoProducto);
-      }
-    }
-    else{
-      this.dataProductos.push(this.objPedidoProducto);
-    }
-
+    this.PedidosService.changeDetallePedido(item)
+    this.dataProductos = this.PedidosService.detallePedido;
     this.itemSeleccionado = item;
     this.showModal()
   }
 
   // Para aumentar cantidad de producto selecionados en el formulario de pedidos
-  addProduct(){
-    // if(item.id == producto.idProducto){
-    //   producto.cant = producto.cant + 1;
+  addProduct(item:producto){
+    this.PedidosService.addPedido.subscribe(arrayPedidos=>{
+      console.log("soy pedido + 1")
+
+    })
   }
 
   // Para disminuir cantidad de producto selecionados en el formulario de pedidos
 
   // Para eliminar los producto selecionados en el formulario de pedidos
+  deleteProduct(item:producto){
+    this.PedidosService.deleteProducto(item)
+    // this.PedidosService.addPedido.subscribe(arrayPedidos=>{})
+    // this.dataProductos.forEach((producto,index)=>{
+    //   if(item.id == producto.idProducto){
+    //     console.log(item, "soy item");
+    //     console.log(producto.idProducto, "soy producto")
+    //     // item.splice(index,1);
+    //   }
+    //})
+  }
+
 
   //Mostrar Modal de Adicionales para Hamburguesas
   show: boolean = false;

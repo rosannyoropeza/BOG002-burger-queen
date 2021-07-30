@@ -24,8 +24,8 @@
       <td>{{ item.precio | currency: 'USD'  }}</td>
       <td>
         {{ item.cant}}
-        <button type="button" class="btntd" (click)="addProductQuantity(item)"><img src="./assets/image/add.png" width="50%"/></button>
-        <button type="button" class="btntd" (click)="reduceProductQuantity(item)"><img src="./assets/image/remove.png" width="50%"/></button>
+        <button type="button" class="btntd" (click)="increaseProductQuantity(item)"><img src="./assets/image/add.png" width="50%"/></button>
+        <button type="button" class="btntd" (click)="decreaseProductQuantity(item)"><img src="./assets/image/remove.png" width="50%"/></button>
         <button type="button" class="btntd" (click)="deleteProductQuantity(item)"><img src="./assets/image/delete.png" width="50%"/></button>
       </td>
     </tr>

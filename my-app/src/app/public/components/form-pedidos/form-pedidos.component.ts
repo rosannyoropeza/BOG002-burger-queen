@@ -9,24 +9,24 @@ import {pedidoProducto, producto} from '../../interfaz/menu'
 
 export class FormPedidosComponent implements OnInit {
   @Input() dataPedido: Array<pedidoProducto> = [];
-  @Output () addQuantityRequest= new EventEmitter();
+  @Output () increaseRequest= new EventEmitter();
   @Output () deleteRequest = new EventEmitter();
-  @Output () reduceRequest = new EventEmitter();
+  @Output () decreaseRequest = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  addProductQuantity(item:pedidoProducto){
-    this.addQuantityRequest.emit(item);
+  increaseProductQuantity(item:pedidoProducto){
+    this.increaseRequest.emit(item);
   }
 
   deleteProductQuantity(item:pedidoProducto){
     this.deleteRequest.emit(item);
   }
 
-  reduceProductQuantity(item:pedidoProducto){
-    this.reduceRequest.emit(item);
+  decreaseProductQuantity(item:pedidoProducto){
+    this.decreaseRequest.emit(item);
   }
 }

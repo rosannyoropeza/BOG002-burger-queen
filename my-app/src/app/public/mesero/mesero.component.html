@@ -33,9 +33,9 @@
   <div class="conteinerFormMenu">
     <app-form-pedidos
       [dataPedido]="dataProductos"
-      (addQuantityRequest)="addProduct($event)"
+      (increaseRequest)="increaseProduct($event)"
       (deleteRequest)="deleteProduct($event)"
-      (reduceRequest)="reduceProduct($event)"
+      (decreaseRequest)="decreaseProduct($event)"
     ></app-form-pedidos>
   </div>
 </section>

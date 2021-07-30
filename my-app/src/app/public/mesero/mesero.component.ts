@@ -55,16 +55,13 @@ export class MeseroComponent implements OnInit {
   }
 
   // Para aumentar cantidad de producto selecionados en el formulario de pedidos
-  addProduct(item:producto){
-    // this.PedidosService.addPedido.subscribe(arrayPedidos=>{
-    //   console.log("soy pedido + 1")
-
-    // })
+  increaseProduct(itemPedido:pedidoProducto){
+    this.PedidosService.increaseProducto(itemPedido);
   }
 
   // Para disminuir cantidad de producto selecionados en el formulario de pedidos
-  reduceProduct(item:producto){
-    this.PedidosService.reduceProducto(item)
+  decreaseProduct(itemPedido:pedidoProducto){
+    this.PedidosService.decreaseProducto(itemPedido);
   }
 
   // Para eliminar los producto selecionados en el formulario de pedidos

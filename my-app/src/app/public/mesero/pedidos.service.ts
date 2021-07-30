@@ -49,35 +49,21 @@ export class PedidosService {
     this.getPedido.next(this.detallePedido);
   }
 
-  addProducto(item: producto) {
-    // if (item.id == item.idProducto) {
-    //   item.cant = item.cant + 1;
-    // }
+  increaseProducto(itemDetalle: pedidoProducto) {
+    itemDetalle.cant += 1;
   }
 
-  reduceProducto(item: producto){
-    // if (this.detallePedido.length > 0) {
-    //   this.detallePedido.map( item => {
-    //     return item.name;
-    //   })
+  decreaseProducto(itemDetalle: pedidoProducto){
+    //itemDetalle cuanta cantidad tiene
+    // si cantidad es mayor que 1 debe disminuir 1 cantidad por cada click
+    //si cantidad es igual a 1 debe eliminar el item.
 
-    //   let indice=nombres.includes(this.objDetallePedido.name);
-    //   this.existe= indice;
-    //   if (this.existe) {
-    //     this.detallePedido.forEach((producto) => {
-    //       if (item.id == producto.idProducto) {
-    //         producto.cant = producto.cant + 1;
-    //         producto.precio = item.precio+producto.precio;
-    //       }
-    //     });
-    //   }
-    //   else{
-    //     this.detallePedido.push(this.objDetallePedido);
-    //   }
-    // } else {
-    //   this.detallePedido.push(this.objDetallePedido);
-    // }
-    // this.getPedido.next(this.detallePedido)
+    if(itemDetalle.cant > 1){
+      itemDetalle.cant -= 1;
+    }
+    else{
+      this.deleteProducto(itemDetalle);
+    }
   }
 
   deleteProducto(itemDetalle: pedidoProducto) {

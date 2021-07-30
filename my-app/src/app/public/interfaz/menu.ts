@@ -18,6 +18,7 @@ export interface pedidoProducto{
   name: string;
   precio: number;
   cant: number;
+  precioTotal:number;
   adicional: {
     adicional1: string;
     adicional2: string;

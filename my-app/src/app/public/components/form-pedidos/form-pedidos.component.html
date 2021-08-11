@@ -1,46 +1,45 @@
-<form>
-  <div class="formHead">
-    <label for="nombreDeCliente">Cliente: </label>
-    <input id="nombreDeCliente" placeholder="Nombre del cliente" />
+<form [formGroup]="pedidoCliente" (ngSubmit)="onSubmit()">
+  <div for="nombreDeCliente" class="formHead">
+    <label class= "labelForm" for="nombreDeCliente">Cliente: </label>
+    <input id="nombreDeCliente" placeholder="Nombre del cliente" formControlName="cliente" value="nombreDeCliente"/>
   </div>
-  <div class="formHead">
-    <label for="numeroDeMesa">Mesa:#</label>
-    <input id="numeroDeMesa" placeholder=" de Mesa" />
+  <div for="numeroDeMesa" class="formHead">
+    <label class= "labelForm" for="numeroDeMesa">Mesa:  #</label>
+    <input id="numeroDeMesa" placeholder=" de Mesa" formControlName="mesa" value="numeroDeMesa" />
   </div>
-</form>
 
-<table>
-  <thead>
-    <tr>
-      <th width="50%" nowrap>Producto</th>
-      <th>Precio</th>
-      <th nowrap>Cantidad</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- <tr *ngFor="let item of dataProductos; index as i"> -->
-      <tr *ngFor="let item of dataPedido; index as i">
-      <td>{{ item.name }}</td>
-      <td>{{ item.precioTotal | currency: 'USD'  }}</td>
-      <td>
-        {{ item.cant}}
-        <button type="button" class="btntd" (click)="increaseProductQuantity(item)"><img src="./assets/image/add.png" width="50%"/></button>
-        <button type="button" class="btntd" (click)="decreaseProductQuantity(item)"><img src="./assets/image/remove.png" width="50%"/></button>
-        <button type="button" class="btntd" (click)="deleteProductQuantity(item)"><img src="./assets/image/delete.png" width="50%"/></button>
-      </td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <td colspan="2">
-      <label class="total">Total: </label>
-    </td>
-    <td colspan="2">
-        <p class="total"> {{payProduct | currency: 'USD'}} </p>
-    </td>
-  </tfoot>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th class="izquierda" width="50%" nowrap>Producto</th>
+        <th>Precio</th>
+        <th nowrap>Cant.</th>
+        <th nowrap>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let item of dataProductos; index as i"> -->
+        <tr *ngFor="let item of dataPedido; index as i">
+          <td>{{ item.name }}</td>
+          <td class="centrado">{{ item.precioTotal | currency: 'USD'  }}</td>
+          <td class="centrado"> {{ item.cant}} </td>
+          <td class="tdBtn">
+            <button type="button" class="btntd" (click)="increaseProductQuantity(item)"><img src="./assets/image/add.png" width="100%"/></button>
+            <button type="button" class="btntd" (click)="decreaseProductQuantity(item)"><img src="./assets/image/remove.png" width="100%"/></button>
+            <button type="button" class="btntd" (click)="deleteProductQuantity(item)"><img src="./assets/image/delete.png" width="100%"/></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-<div>
-  <button type="button" class="btnPedido">Enviar pedido</button>
-  <button type="button" class="btnPedido" (click)="cancelOrder()">Cancelar pedido</button>
-</div>
+    <div class="totalContainer">
+
+      <div class="total">Total:</div>
+      <div class="total">{{payProduct | currency: 'USD'}}</div>
+    </div>
+
+    <div class="btnContainer">
+      <button type="submit" class="btnPedido">Enviar pedido</button>
+      <button type="button" class="btnPedido" (click)="cancelOrder()">Cancelar pedido</button>
+    </div>
+  </form>

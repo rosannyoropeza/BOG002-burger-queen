@@ -1,28 +1,38 @@
-<div class="modal" [ngClass]="{ show: showclass }">
+<form [formGroup]="modalItem" (ngSubmit)="onSubmit()" class="modalItem">
+<div class="modal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form [formGroup]="modalItem" (ngSubmit)="onSubmit()" class="modalItem" >
       <div class="modal-header">
         <p>{{ item.name }}</p>
         <button type="button" class="close" (click)="closeModal()">
-          <img src="./assets/image/cerrar2.png" width="50px" height="50px"/>
+          <img src="./assets/image/cerrar2.png" width="50px" height="50px" />
         </button>
       </div>
-      <div class="modal-body">
-        <img class= "imgItem" src="{{item.url}}" width="200px" height="200px">
-          <p> Adicional: </p>
-          <hr>
-          <label for="adicional1"> {{ item.adicional?.adicional1 }} {{ item.adicional?.precio | currency: "USD" }} </label>
-          <input id="adicional1" type="checkbox" formControlName="adicional1" value="adicional1">
+      <div class= "container-body">
+        <div class="modal-body">
+          <img class="imgItem" src="{{ item.url }}" width="200px" height="200px"/>
+        </div>
+        <div class="adicional-modal">
+          <p>Adicional:</p>
+          <hr />
+          <label for="adicional1">
+            {{ item.adicional?.adicional1 }}
+            {{ item.adicional?.precio | currency: "USD" }}
+          </label>
+          <input id="adicional1" type="checkbox" formControlName="adicional1" value="adicional1"/>
 
-          <label for="adicional2"> {{ item.adicional?.adicional2 }} {{ item.adicional?.precio | currency: "USD" }} </label>
-          <input id="adicional2" type="checkbox" formControlName="adicional2" value="adicional2">
+          <label for="adicional2">
+            {{ item.adicional?.adicional2 }}
+            {{ item.adicional?.precio | currency: "USD" }}
+          </label>
+          <input id="adicional2" type="checkbox" formControlName="adicional2"/>
         </div>
+      </div>
         <div class="modal-footer">
-          <button type="button" class="btnModal" (click)="clearModal()">Limpiar</button>
-          <button type="submit" class="btnModal"  [disabled]="!modalItem.valid">Agregar </button>
+          <button type="reset" class="btnModal"> Limpiar </button>
+          <button type="submit" class="btnModal"> Agregar </button>
         </div>
-      </form>
     </div>
   </div>
 </div>
+</form>

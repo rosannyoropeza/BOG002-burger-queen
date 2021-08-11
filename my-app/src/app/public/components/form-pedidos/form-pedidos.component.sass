@@ -1,6 +1,7 @@
 ::host
   width: 100%
 
+//Estilos para el formulario del cliente
 .formHead
   display: flex
 
@@ -8,6 +9,8 @@
   width: 100%
   margin-bottom: 1%
 
+.labelForm
+  width: 10%
 
 input
   color: #000000
@@ -26,50 +29,72 @@ form
   span
     color: #000000
     width:70px
-    display:inline-block
+    //display:inline-block
 
+//Estilos para la tabla de detalle productos
 table
   width: 100%
-  border-top: 0.2rem solid #FF0404
-  border-bottom: 0.2rem solid #FF0404
   border-collapse: collapse
+  margin-bottom: 1rem
 
   th
-    border-left: 0.2rem solid #FF0404
-    border-right: 0.2rem solid #FF0404
-    border-bottom: 0.2rem solid #FF0404
+    border: 0.2rem solid #FF0404
+    padding: 1rem 0rem 1rem 0rem
 
   td
-    border-left: 0.2rem solid #FF0404
-    border-right: 0.2rem solid #FF0404
+    // border: 0.2rem solid #FF0404
+    // border-collapse: collapse
+    //border-left: 0.2rem solid #FF0404
+    //border-right: 0.2rem solid #FF0404
 
-  tfoot
-    border-top: 0.2rem solid #FF0404
-    border-left: 0.2rem solid #FF0404
-    border-right: 0.2rem solid #FF0404
-    display: flexbox
-    direction: columS
+.izquierda
+  text-align: left
 
+.centrado
+  text-align: center
+
+.tdBtn
+  display: flex
+  justify-content: space-around
 
 .btntd
   width: 50px
   background-color: #FEFFB8
   border: none
 
-.total
+//Estilo para el div que muestra el total
+.totalContainer
+  border-bottom: 0.2rem solid #FF0404
+  border-top: 0.2rem solid #FF0404
+  margin-top: 1rem
+  margin-bottom: 1rem
+  display: flex
+  justify-content: space-between
+  padding: 1rem 0rem 1rem 0rem
 
+//Estilo para los botones
+.btnContainer
+  display: flex
+  align-items: center
+  justify-content: space-between
 
+.btnContainer>:not(:last-child)
+  margin-right: .28rem
 
 .btnPedido
-  width: 100%
-  border-radius: 25px
-  border: #FF0404
-  font-family: 'Lobster'
-  font-weight: bold
-  color: #FFFFFF
+  width: -webkit-fill-available
+  display: inline-block
+  font-family: 'lobster'
   font-size: 1.5rem
+  color: #FFFFFF
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  user-select: none
+  border: 1px solid transparent
+  padding: .375rem .75rem
+  line-height: 2
+  border-radius: .25rem
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+  cursor: pointer
   background: #FF0404
-  margin: 0.5rem
-  padding: 1rem
-
-

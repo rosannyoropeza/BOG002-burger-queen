@@ -4,17 +4,11 @@
   align-items: center
   justify-content: center
   position: fixed
-  opacity:0
   top: 0
   left: 0
   height: 100vh
   width: 100vw
   transition: opacity 0.3s ease
-  z-index: -1
-
-.show
-  opacity: 1
-  z-index: 1
 
 .modal-dialog
   max-width: 800px
@@ -75,8 +69,19 @@ hr
   margin-right: .28rem
 
 .modalItem
+  // padding: 1rem
+  // width: 150px
+
+.container-body
   padding: 1rem
-  width: 150px
+  //width: 150px
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.adicional-modal
+  padding: 1rem
+  //width: 150px
 
 .modal-footer
   display: flex

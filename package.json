@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@angular/compiler": "^12.2.0",
+    "@angular/fire": "^6.1.5",
+    "firebase": "^8.8.1"
+  }
+}

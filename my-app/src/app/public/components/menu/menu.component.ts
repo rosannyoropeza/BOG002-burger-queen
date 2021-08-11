@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { producto } from '../../interfaz/menu';
+import { Producto } from '../../interfaz/menu';
 
 @Component({
   selector: 'app-menu',
@@ -8,8 +8,8 @@ import { producto } from '../../interfaz/menu';
 })
 
 export class MenuComponent implements OnInit {
-  @Input() dataMenu: Array<producto> = [];
-  @Output() addRequest = new EventEmitter<producto>();
+  @Input() dataMenu: Array<Producto> = [];
+  @Output() addRequest = new EventEmitter<Producto>();
 
   constructor() {
   }
@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  addProduct(item: producto) {
+  addProduct(item: Producto) {
     this.addRequest.emit(item);
 
   }

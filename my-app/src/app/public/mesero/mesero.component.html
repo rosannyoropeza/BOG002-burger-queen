@@ -38,12 +38,13 @@
       (decreaseRequest)="decreaseProduct($event)"
       (cancelRequest)="cancelProduct()"
       [payProduct]="totalProduct()"
+      (postRequest)="createOrder($event)"
     ></app-form-pedidos>
   </div>
 </section>
 
 <app-modal
-  [showclass]="show"
+  *ngIf="show"
   [item]="itemSeleccionado"
   [productoPedido]="objPedidoProducto"
   (closeRequest)="closeModal()"

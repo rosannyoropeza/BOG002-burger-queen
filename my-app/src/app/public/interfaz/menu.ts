@@ -1,4 +1,4 @@
-export interface producto {
+export interface Producto {
   id: number;
   name: string;
   url: string;
@@ -11,8 +11,7 @@ export interface producto {
     precio: number;
   };
 }
-
-export interface pedidoProducto{
+export interface PedidoProducto{
   id:number;
   idProducto: number;
   name: string;
@@ -26,3 +25,9 @@ export interface pedidoProducto{
   };
 }
 
+export interface PedidoCliente{
+  cliente?:string;
+  mesa?:number;
+  idOrden?:number;
+  status?:number;
+};

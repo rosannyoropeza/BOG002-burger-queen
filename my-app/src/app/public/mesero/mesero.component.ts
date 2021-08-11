@@ -1,8 +1,11 @@
+import { map } from 'rxjs/operators';
+import { FirebaseService } from './../../firebase/firebase.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { identifierModuleUrl } from '@angular/compiler';
+import { identifierModuleUrl, NgModuleResolver } from '@angular/compiler';
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
-import { producto, pedidoProducto } from './../interfaz/menu';
+import { Producto, PedidoProducto, PedidoCliente } from './../interfaz/menu';
 import { PedidosService } from './pedidos.service';
+//import { AngularFireDatabase } from '@angular/fire/database';
 @Component({
   selector: 'app-mesero',
   templateUrl: './mesero.component.html',
@@ -10,22 +13,39 @@ import { PedidosService } from './pedidos.service';
 })
 export class MeseroComponent implements OnInit {
   menuURL = 'assets/menu.json';
-  menu1: Array<producto> = [];
-  menu2: Array<producto> = [];
+  menu1: Array<Producto> = [];
+  menu2: Array<Producto> = [];
+  ordenes?: any = [];
+  lastOrden: any = 0;
 
-  constructor(private http: HttpClient, private el: ElementRef, private PedidosService: PedidosService) {}
+  constructor(
+    private http: HttpClient,
+    private el: ElementRef,
+    private pedidosService: PedidosService,
+    public firebaseService: FirebaseService
+  ) {}
 
   title?: String = 'Menu Mesero';
 
   ngOnInit(): void {
     this.getMenu();
+    this.firebaseService.setStatus();
+    this.firebaseService.getOrdenes$().subscribe((ordenes:PedidoCliente[])=>{
+      ordenes.map((ord:PedidoCliente)=>{
+        this.lastOrden = ord.idOrden;
+      })
+    })
   }
 
   getMenu() {
-    this.http.get(this.menuURL).subscribe((data) => {
+    this.http.get(this.menuURL).subscribe((data: any) => {
       let desayunos: any = data;
-      this.menu1 = desayunos.filter((item: producto) => item.tipo == 'desayuno');
-      this.menu2 = desayunos.filter((item: producto) => item.tipo == 'almuerzo');
+      this.menu1 = desayunos.filter(
+        (item: Producto) => item.tipo == 'desayuno'
+      );
+      this.menu2 = desayunos.filter(
+        (item: Producto) => item.tipo == 'almuerzo'
+      );
     });
   }
 
@@ -42,82 +62,86 @@ export class MeseroComponent implements OnInit {
   }
 
   // //Creando Lista de productos
-  dataProductos: Array<pedidoProducto> = [];
+  dataProductos: Array<PedidoProducto> = [];
   cantidadProductos: number = 0;
-  objPedidoProducto?: pedidoProducto;
+  objPedidoProducto?: PedidoProducto;
   itemSeleccionado: any = {};
 
-  addDataProductos(item: producto) {
-    this.PedidosService.changeDetallePedido(item)
-    this.dataProductos = this.PedidosService.detallePedido;
+  addDataProductos(item: Producto) {
+    this.pedidosService.changeDetallePedido(item);
+    this.dataProductos = this.pedidosService.detallePedido;
     this.itemSeleccionado = item;
-    this.showModal()
+    this.showModal();
   }
 
   // Para aumentar cantidad de producto selecionados en el formulario de pedidos
-  increaseProduct(itemPedido:pedidoProducto){
-    this.PedidosService.increaseProducto(itemPedido);
+  increaseProduct(itemPedido: PedidoProducto) {
+    this.pedidosService.increaseProducto(itemPedido);
   }
 
   // Para disminuir cantidad de producto selecionados en el formulario de pedidos
-  decreaseProduct(itemPedido:pedidoProducto){
-    this.PedidosService.decreaseProducto(itemPedido);
+  decreaseProduct(itemPedido: PedidoProducto) {
+    this.pedidosService.decreaseProducto(itemPedido);
   }
 
   // Para eliminar los producto selecionados en el formulario de pedidos
-  deleteProduct(itemPedido:pedidoProducto){
-    this.PedidosService.deleteProducto(itemPedido)
+  deleteProduct(itemPedido: PedidoProducto) {
+    this.pedidosService.deleteProducto(itemPedido);
   }
 
   // Para sumar el total de los productos de detallePedido
-  totalProduct(){
-    let total = this.PedidosService.totalPay();
+  totalProduct() {
+    let total = this.pedidosService.totalPay();
     return total;
   }
 
-  cancelProduct(){
-    this.PedidosService.cancelProducto();
-    this.dataProductos = this.PedidosService.detallePedido;
+  cancelProduct() {
+    this.pedidosService.cancelProducto();
+    this.dataProductos = this.pedidosService.detallePedido;
   }
 
   //Mostrar Modal de Adicionales para Hamburguesas
   show: boolean = false;
 
-  showModal(){
-   if (this.itemSeleccionado.adicional.adicional1== null && this.itemSeleccionado.adicional.adicional2== null){
-     this.show = false;
-   }
-   else{
-     this.show = !this.show;
-   }
+  showModal() {
+    if (
+      this.itemSeleccionado.adicional.adicional1 == null &&
+      this.itemSeleccionado.adicional.adicional2 == null
+    ) {
+      this.show = false;
+    } else {
+      this.show = !this.show;
+    }
   }
 
   closeModal() {
-     this.show = false;
+    this.show = false;
   }
 
-  addAdicional(item:producto){
-    console.log(item)
-    // this.dataProductos.map( prod => {
-    //   if (prod.id==1 && prod.idProducto== item.id){
-    //     prod.name = prod.name
-    //     prod.adicional.adicional1 = prod.adicional.adicional1
-    //     prod.adicional.adicional2 = prod.adicional.adicional2
-    //     prod.adicional.precio = prod.adicional.precio
-    //     prod.precio = prod.adicional.precio + prod.adicional.precio
-    //     // prod.name = prod.name + 'con queso'
-    //     // prod.adicional.adicional1 = 'queso'
-    //     // prod.adicional.adicional2 = 'huevo'
-    //     // prod.adicional.precio = prod.adicional.precio + 2
-    //   }
-    // });
-
-    // // let idProduct = item;
-    // console.log(idProduct, "Soy id del producto menu")
+  addAdicional(formAdicional: any) {
+    this.pedidosService.addProductoAdicional(formAdicional);
+    this.dataProductos = this.pedidosService.detallePedido;
   }
 
+  getCliente: any;
+  //FUNCION PARA CREAR PEDIDO EN FIREBASE
+  createOrder(formCliente: any) {
+    formCliente.idOrden = this.lastOrden + 1;
+    formCliente.status = 1;
+    this.firebaseService
+      .createClientePedido(formCliente)
+      .then((resp) => {
+        this.createDetalle(resp.id);
+      })
+      .catch((error) => {
 
+      });
+  }
+
+  //FUNCION CALLBACK PARA CREAR PEDIDO DEL CLIENTE
+  createDetalle(id: any) {
+    console.log('1');
+    console.log('1', this.dataProductos);
+    this.firebaseService.createDetallePedido(this.dataProductos, id);
+  }
 }
-
-
-

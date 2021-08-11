@@ -1,1 +1,10 @@
-<p>jefe-de-cocina works!</p>
+<div>
+  <app-header></app-header>
+</div>
+
+<app-card-pedido-producto
+  [ordenes]="ordenes"
+  (changeRequest)="changeOrder($event)"
+  (idRequest.id)="changeOrder($event)"
+>
+</app-card-pedido-producto>

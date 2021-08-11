@@ -6,6 +6,7 @@ import { HomeComponent } from './home/containers/home.component';
 import { MeseroComponent } from './mesero/mesero.component';
 import { JefeDeCocinaComponent } from './jefe-de-cocina/jefe-de-cocina.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { PedidosListosComponent } from './components/pedidos-listos/pedidos-listos.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
           { path: 'desayunos', component: MenuComponent  },
         ]
       },
+      { path: 'pedidos-listos', component: JefeDeCocinaComponent },
     ],
   },
 ];

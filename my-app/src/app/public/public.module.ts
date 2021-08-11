@@ -12,7 +12,10 @@ import { HeaderComponent } from "./components/header/header.component";
 import { MenuComponent } from "./components/menu/menu.component";
 import { FormPedidosComponent } from './components/form-pedidos/form-pedidos.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { CardPedidoProductoComponent } from './components/card-pedido-producto/card-pedido-producto.component';
+import { PedidosListosComponent } from './components/pedidos-listos/pedidos-listos.component';
 
+import { FirebaseService } from "../firebase/firebase.service";
 @NgModule ({
   //Para importar a este modulo
   imports:
@@ -32,7 +35,9 @@ import { ModalComponent } from './components/modal/modal.component';
     HeaderComponent,
     MenuComponent,
     FormPedidosComponent,
-    ModalComponent
+    ModalComponent,
+    CardPedidoProductoComponent,
+    PedidosListosComponent
   ],
   //Para exportar y acceder desde HTML APP
   exports:
@@ -40,7 +45,7 @@ import { ModalComponent } from './components/modal/modal.component';
     PublicComponent,
     HomeComponent
   ],
-  providers:[]
+  providers:[FirebaseService]
 })
 
 export class PublicModule{

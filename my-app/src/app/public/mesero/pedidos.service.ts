@@ -47,7 +47,7 @@ export class PedidosService {
       this.detallePedido.push(this.objDetallePedido);
     }
 
-    this.getPedido.next(this.detallePedido);
+    // this.getPedido.next(this.detallePedido);
   }
 
   increaseProducto(itemDetalle: PedidoProducto) {
@@ -73,7 +73,7 @@ export class PedidosService {
     this.detallePedido.map((detalleProducto, index) => {
       if (itemDetalle.id == detalleProducto.id) {
         this.detallePedido.splice(index, 1);
-        this.getPedido.next(this.detallePedido);
+        // this.getPedido.next(this.detallePedido);
       }
     });
   }
@@ -88,7 +88,7 @@ export class PedidosService {
 
   cancelProducto() {
     this.detallePedido = [];
-    this.getPedido.next(this.detallePedido);
+    // this.getPedido.next(this.detallePedido);
   }
 
   addProductoAdicional(formAdicional: any) {

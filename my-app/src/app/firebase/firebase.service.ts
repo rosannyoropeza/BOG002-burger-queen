@@ -1,7 +1,6 @@
 import {
   AngularFirestore,
   AngularFirestoreCollection,
-  AngularFirestoreCollectionGroup,
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import {
@@ -9,7 +8,7 @@ import {
   PedidoCliente,
   Producto,
 } from '../public/interfaz/menu';
-import { Observable, ObservableInput, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -20,12 +19,13 @@ export class FirebaseService {
   ordenes: Array<any> = [];
   ordenes$: Subject<PedidoCliente[]>;
   productos: AngularFirestoreCollection<PedidoProducto>;
-  status:number=0;
+  status:number = 0;
 
   constructor(private db: AngularFirestore,  public miRouter: Router) {
     this.ordenes = [];
     this.ordenes$ = new Subject();
     this.productos = db.collection('detallePedido');
+    // this.getOrdenes();
   }
 
   setStatus(){
@@ -45,10 +45,13 @@ export class FirebaseService {
 
   //METODO PARA LISTAR TODOS LOS PEDIDOS
   getPedidosDb(): AngularFirestoreCollection<PedidoCliente> {
-    console.log('getPedidosDB',this.status)
-    return this.db.collection('pedidos', (ref) =>
-      ref.where('status', '==', this.status)
-    );
+    this.setStatus();
+    console.log('getPedidosDB status',this.status)
+    if (this.status > 0){
+      return this.db.collection('pedidos', (ref) => ref.where('status', '==', this.status));
+    }else{
+      return this.db.collection('pedidos');
+    }
   }
 
   getDetalleDb(idPedido: any): AngularFirestoreCollection<PedidoProducto> {
@@ -60,7 +63,6 @@ export class FirebaseService {
   lastOrden: number = 0;
 
   getOrdenes$(): Observable<PedidoCliente[]> {
-    this.getOrdenes();
     return this.ordenes$.asObservable();
   }
 
@@ -82,7 +84,6 @@ export class FirebaseService {
           }
           return 0;
         });
-        this.ordenes$.next(data);
 
         data.forEach((element: any) => {
           this.lastOrden = element.idOrden + 1;
@@ -94,20 +95,21 @@ export class FirebaseService {
   getDetalle(pedido: any) {
     this.ordenes = [];
     this.getDetalleDb(pedido.id)
-      .snapshotChanges()
+    .snapshotChanges()
       .pipe(
         map((changes: any) =>
-          changes.map((el: any) => ({
-            ...el.payload.doc.data(),
+        changes.map((el: any) => ({
+          ...el.payload.doc.data(),
           }))
-        )
-      )
-      .subscribe((data: any) => {
+          )
+          )
+          .subscribe((data: any) => {
         this.productos = data;
         this.ordenes.push({
           ...pedido,
           productos: data,
         });
+        this.ordenes$.next(this.ordenes);
       });
   }
 

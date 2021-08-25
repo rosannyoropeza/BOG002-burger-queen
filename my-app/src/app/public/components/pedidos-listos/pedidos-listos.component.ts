@@ -1,16 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/firebase/firebase.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pedidos-listos',
   templateUrl: './pedidos-listos.component.html',
-  styleUrls: ['./pedidos-listos.component.sass']
+  styleUrls: ['./pedidos-listos.component.sass'],
 })
 export class PedidosListosComponent implements OnInit {
-  @Input () ordenes:any;
 
-  constructor() { }
 
-  ngOnInit() {
+  constructor(public firebaseService: FirebaseService) {
+  }
+
+  ngOnInit(): void {
+    this.firebaseService.setStatus();
   }
 
 }

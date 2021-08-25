@@ -1,6 +1,8 @@
+// import { PedidoCliente } from './../../interfaz/menu';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, MaxValidator } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 import { PedidoProducto } from '../../interfaz/menu'
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form-pedidos',
@@ -17,15 +19,32 @@ export class FormPedidosComponent implements OnInit {
   @Output () postRequest = new EventEmitter();
   @Input  () payProduct: any;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.buildForm();
+   }
 
   ngOnInit() {
   }
 
-  pedidoCliente = new FormGroup({
-    cliente : new FormControl(''),
-    mesa : new FormControl('')
-  })
+  pedidoCliente: FormGroup;
+
+  private buildForm(){
+    this.pedidoCliente= this.formBuilder.group({
+      cliente : ['', Validators.required],
+      mesa : ['', Validators.required]
+    })
+  }
+
+  // this.PedidoCliente!.valueChanges
+  // .pipe(
+  //   debounceTime(500)
+  // )
+  // .subscribe((value:any) => console.log(value));
+
+  // pedidoCliente = new FormGroup({
+  //   cliente : new FormControl('', Validators.required),
+  //   mesa : new FormControl('', Validators.required)
+  // },Validators.required)
 
   onSubmit(){
     this.postRequest.emit(this.pedidoCliente.value)

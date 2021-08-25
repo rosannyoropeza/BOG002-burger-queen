@@ -1,11 +1,15 @@
-<form [formGroup]="pedidoCliente" (ngSubmit)="onSubmit()">
+<form [formGroup]="pedidoCliente" (ngSubmit)="onSubmit()" novalidate>
   <div for="nombreDeCliente" class="formHead">
     <label class= "labelForm" for="nombreDeCliente">Cliente: </label>
-    <input id="nombreDeCliente" placeholder="Nombre del cliente" formControlName="cliente" value="nombreDeCliente"/>
+    <input id="nombreDeCliente" placeholder="Nombre del cliente" formControlName="cliente" value="nombreDeCliente" required/>
   </div>
+  <p *ngIf="pedidoCliente.get('cliente').errors && pedidoCliente.get('cliente').touched">
+    <small *ngIf="pedidoCliente.get('cliente').hasError('required')">Este campo es requerido</small>
+    <img src="./assets/image/checkList.jpg">
+  </p>
   <div for="numeroDeMesa" class="formHead">
     <label class= "labelForm" for="numeroDeMesa">Mesa:  #</label>
-    <input id="numeroDeMesa" placeholder=" de Mesa" formControlName="mesa" value="numeroDeMesa" />
+    <input id="numeroDeMesa" placeholder=" de Mesa" formControlName="mesa" value="numeroDeMesa" required />
   </div>
 
   <table>
@@ -39,7 +43,9 @@
     </div>
 
     <div class="btnContainer">
-      <button type="submit" class="btnPedido">Enviar pedido</button>
-      <button type="button" class="btnPedido" (click)="cancelOrder()">Cancelar pedido</button>
+      <button type="submit" class="btn2 btnPedido" [disabled]="pedidoCliente.invalid">Enviar pedido</button>
+      <button type="button" class="btn2 btnPedido" (click)="cancelOrder()">Cancelar pedido</button>
+      <!-- <button type="submit" class="btnPedido" [disabled]="pedidoCliente.invalid">Enviar pedido</button>
+      <button type="button" class="btnPedido" (click)="cancelOrder()">Cancelar pedido</button> -->
     </div>
   </form>

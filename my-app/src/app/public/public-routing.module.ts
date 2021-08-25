@@ -16,6 +16,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'mesero', component: MeseroComponent },
+      { path: 'pedidos', component: PedidosListosComponent},
       { path: 'jefe-de-cocina', component: JefeDeCocinaComponent },
       {
         path: 'menu',
@@ -28,7 +29,6 @@ const routes: Routes = [
     ],
   },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

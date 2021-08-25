@@ -1,20 +1,39 @@
-.notfound
-  width: 50%
-  height: 300px
-  border-radius: 25px
-  text-decoration: none
-  padding: 3%
-  font-family: 'Lobster', normal
-  background: #FEFFB8
-  margin: auto
-  margin-top: 15%
+$colorbackground: #FEFFB8
+$colorbackground2:#000000
 
-.btn-link-home
-  width: 100%
+@mixin tablet
+  @media only screen and (max-width: 768px)
+    @content
+
+.notfound
+  background: $colorbackground
+  width: 25%
   border-radius: 25px
-  padding: 1%
-  font-family: 'Lobster', normal
-  font-size: 2rem
-  background: #000000
-  color: #FEFFB8
+  padding: 3%
+  color: $colorbackground2
   margin: auto
+  font-family: 'Lobster', normal
+  margin-top: 10rem
+  @include tablet
+    width: 50%
+
+  p
+    font-weight: bold
+    font-size: 1.5rem
+
+  div
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 3rem
+
+    .btn-link-home
+      text-decoration: none
+      color: $colorbackground
+      background-color: $colorbackground2
+      border-radius: 25px
+      line-height: 3rem
+      padding: 1rem
+      color: $colorbackground
+      font-size: 1.5rem

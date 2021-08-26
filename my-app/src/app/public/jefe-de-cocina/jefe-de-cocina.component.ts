@@ -1,4 +1,4 @@
-import { Producto, PedidoProducto, PedidoCliente } from './../interfaz/menu';
+import { PedidoProducto} from './../interfaz/menu';
 import {
   Component,
   OnInit,
@@ -12,19 +12,16 @@ import { FirebaseService } from 'src/app/firebase/firebase.service';
 })
 export class JefeDeCocinaComponent implements OnInit {
   productos?: PedidoProducto[];
-  ordenes?: any = [];
   pedido: any = {};
+  ordenes!: Array<any>;
+
 
   constructor(public firebaseService: FirebaseService) {
+
   }
 
   ngOnInit(): void {
-    this.firebaseService.setStatus();
-    this.getOrdenes();
-  }
-  getOrdenes() {
-    this.firebaseService.getOrdenes();
-    this.ordenes=this.firebaseService.ordenes;
+    localStorage.setItem('perfil', 'cocinero');
   }
 
   changeOrder(formCardPedido:any){

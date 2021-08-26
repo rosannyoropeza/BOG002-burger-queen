@@ -1,11 +1,8 @@
-import { map } from 'rxjs/operators';
 import { FirebaseService } from './../../firebase/firebase.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { identifierModuleUrl, NgModuleResolver } from '@angular/compiler';
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Producto, PedidoProducto, PedidoCliente } from './../interfaz/menu';
 import { PedidosService } from './pedidos.service';
-//import { AngularFireDatabase } from '@angular/fire/database';
 @Component({
   selector: 'app-mesero',
   templateUrl: './mesero.component.html',
@@ -28,6 +25,7 @@ export class MeseroComponent implements OnInit {
   title?: String = 'Menu Mesero';
 
   ngOnInit(): void {
+    localStorage.setItem('perfil', 'mesero');
     this.getMenu();
     this.firebaseService.setStatus();
     this.firebaseService.getOrdenes$().subscribe((ordenes:PedidoCliente[])=>{
@@ -35,6 +33,7 @@ export class MeseroComponent implements OnInit {
         this.lastOrden = ord.idOrden;
       })
     })
+    this.firebaseService.getOrdenes();
   }
 
   getMenu() {
@@ -140,8 +139,8 @@ export class MeseroComponent implements OnInit {
 
   //FUNCION CALLBACK PARA CREAR PEDIDO DEL CLIENTE
   createDetalle(id: any) {
-    console.log('1');
-    console.log('1', this.dataProductos);
     this.firebaseService.createDetallePedido(this.dataProductos, id);
+    this.dataProductos = [];
+    this.pedidosService.detallePedido = [];
   }
 }

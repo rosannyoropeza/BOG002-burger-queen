@@ -4,25 +4,16 @@
     <a class="navbar-brand" routerLink="/public/home" routerLinkActive="active">
       <img class='d-block' src='../../../assets/image/logoMenu.png' width= "70px" height= "70px">
     </a>
-    <ul *ngIf="miRouter.url === '/public/mesero'"  class="navbar-nav bd-navbar-nav flex-row">
+    <ul *ngIf="perfil=== 'mesero'"  class="navbar-nav bd-navbar-nav flex-row">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/public/menu" routerLinkActive="active">Menu</a>
+        <a class="nav-link" routerLink="/public/mesero" routerLinkActive="active">Menu</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/public/pedidos" routerLinkActive="active">Pedidos</a>
-      </li>
-    </ul>
-
-    <ul *ngIf="miRouter.url === '/public/menu'"  class="navbar-nav bd-navbar-nav flex-row">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/public/menu" routerLinkActive="active">Menu</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/public/pedidos" routerLinkActive="active">Pedidos</a>
+        <a class="nav-link" routerLink="/public/pedidos" routerLinkActive="active">Pedidos Listos</a>
       </li>
     </ul>
 
-    <ul *ngIf="miRouter.url === '/public/jefe-de-cocina'"  class="navbar-nav bd-navbar-nav flex-row">
+    <ul *ngIf="perfil=== 'cocinero'"  class="navbar-nav bd-navbar-nav flex-row">
       <li class="nav-item">
         <a class="nav-link" routerLink="/public/jefe-de-cocina" routerLinkActive="active">Pedidos Pendientes</a>
       </li>
@@ -30,16 +21,6 @@
         <a class="nav-link" routerLink="/public/pedidos-listos" routerLinkActive="active">Pedidos Listos</a>
       </li>
     </ul>
-
-    <ul *ngIf="miRouter.url === '/public/pedidos-listos'"  class="navbar-nav bd-navbar-nav flex-row">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/public/jefe-de-cocina" routerLinkActive="active">Pedidos Pendientes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/public/pedidos-listos" routerLinkActive="active">Pedidos Listos</a>
-      </li>
-    </ul>
-
   </div>
 
   <a class="nav-cerrar" routerLink="/public/home" routerLinkActive="active">Cerrar</a>

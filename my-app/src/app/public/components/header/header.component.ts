@@ -7,9 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent implements OnInit {
+  perfil:string;
   constructor(
     public miRouter: Router,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.perfil=localStorage.getItem('perfil');
+  }
 }

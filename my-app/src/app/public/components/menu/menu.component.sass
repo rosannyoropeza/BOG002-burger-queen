@@ -1,31 +1,41 @@
+@import '../../../../vars'
+
 :host
   display: flex
   justify-content: center
   flex-wrap: wrap
-  text_justify-content: space-evenly
+  justify-content: space-evenly
   width: 100%
   margin: 0%
   align-items: center
 
-
 .menuCard
   width: 250px
   height: 250px
-  border-radius: 25px
+  border-radius: $boder-radius1
   padding: 5px
-  font-family: 'lobster'
-  font-weight: bold
-  font-size: 1.3rem
-  background: #FEFFB8
+  background: $bg-card
   margin: 2%
   list-style: none
   flex-direction: column
   justify-content: space-around
   align-items: center
   text-align: center
+  @include tablet
+    width: 150px
+    height: auto
+    font-size: $font-size4
 
   img
     margin-top: 2%
+    @include tablet
+      width: 100px
+      height: 80px
+
+  &:hover
+    color: $rgba-black2 !important
+    box-shadow: 0 4px 16px $rgba-yellow
+    transition: all 0.2s ease
 
 .itemP
     align-self: flex-end

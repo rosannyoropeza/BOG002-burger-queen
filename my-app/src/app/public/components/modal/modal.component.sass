@@ -1,3 +1,5 @@
+@import '../../../../vars'
+
 .modal
   display: flex
   background-color: rgba(0, 0, 0, 0.5)
@@ -17,11 +19,11 @@
   width: auto
   margin: .5rem
   box-sizing: border-box
+  @include tablet
+    margin-bottom: 30rem
 
 .modal-content
-  background: #FEFFB8
-  font-family: 'lobster'
-  font-size: 1.5rem
+  background: $bg-card
   width: 500px
   max-width: 100%
   padding: 1rem 2rem
@@ -36,13 +38,13 @@
   padding: 1rem
   border-top-left-radius: .3rem
   border-top-right-radius: .3rem
-  border-bottom: 1px solid #e9ecef
+  border-bottom: $border-btn1
 
 .close
   float: right
   padding: 1rem
   margin: -1rem -1rem -1rem auto
-  background: #FEFFB8
+  background: $bg-btn-transparent
   border: none
   box-sizing: border-box
   cursor: pointer
@@ -68,44 +70,21 @@ hr
 .modal-body>:not(:last-child)
   margin-right: .28rem
 
-.modalItem
-  // padding: 1rem
-  // width: 150px
-
 .container-body
   padding: 1rem
-  //width: 150px
   display: flex
   justify-content: space-between
   align-items: center
 
 .adicional-modal
   padding: 1rem
-  //width: 150px
 
 .modal-footer
   display: flex
   align-items: center
   justify-content: flex-end
   padding: 1rem
-  border-top: 1px solid #e9ecef
+  border-top: $border-btn1
 
 .modal-footer>:not(:last-child)
   margin-right: .28rem
-
-.btnModal
-  display: inline-block
-  font-family: 'lobster'
-  font-size: 1.5rem
-  color: #FFFFFF
-  text-align: center
-  white-space: nowrap
-  vertical-align: middle
-  user-select: none
-  border: 1px solid transparent
-  padding: .375rem .75rem
-  line-height: 1.5
-  border-radius: .25rem
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
-  cursor: pointer
-  background: #FF0404

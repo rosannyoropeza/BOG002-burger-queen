@@ -1,3 +1,5 @@
+@import  '../../../vars'
+
 section
   display: flex
   flex-direction: row
@@ -6,13 +8,13 @@ section
   display: flex
   justify-content: center
   flex-wrap: wrap
+  @include tablet
+    padding: $rem1 0
+    justify-content: space-around
 
 .conteinerFormMenu
-  background: #FEFFB8
-  font-family: 'Lobster'
-  font-weight: bold
-  color: #000000
-  font-size: 1.5rem
+  background: $bg-card
+  color: $fonts1
   margin: 0px 10px 0px 10px
   padding: 2%
   width: 100%
@@ -29,12 +31,22 @@ div
 
 .btnOpciones
   width: 250px
-  border-radius: 25px
   padding: 5px 10px
-  font-family: 'Lobster'
   font-weight: bold
-  color: #000000
-  font-size: 1.5rem
-  background: #FEFFB8
-  margin: 2rem
-  padding: 1rem
+  color: $fonts1
+  background: $bg-btn-menu
+  margin: $rem2
+  padding: $rem1
+  @include tablet
+    width: 150px
+    margin: 0
+    line-height: 1
+
+  &:hover
+    background: $bg-btn-pedido
+    color: $fonts3
+
+  &:focus
+    background: $bg-btn-menu1
+    color: $fonts4
+    border: $border-btn1
